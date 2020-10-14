@@ -14,12 +14,12 @@
     <fragment
         android:id="@+id/nav_activities"
         android:name="com.stl.letsmeet.ui.activities.ActivitiesFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/Activities"
         tools:layout="@layout/fragment_activities" />
 
     <fragment
         android:id="@+id/nav_chat"
         android:name="com.stl.letsmeet.ui.Chat.ChatFragment"
-        android:label="@string/menu_slideshow"
+        android:label="@string/Chat"
         tools:layout="@layout/fragment_chat" />
 </navigation>

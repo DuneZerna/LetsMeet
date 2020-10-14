@@ -35,4 +35,6 @@
     <string name="_23">23</string>
     <string name="odense">Odense</string>
     <string name="todo">TODO</string>
+    <string name="Activities">Activities</string>
+    <string name="Chat">Chat</string>
 </resources>
