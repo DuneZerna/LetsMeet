@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,9 +23,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.stl.letsmeet.Profile;
 import com.stl.letsmeet.R;
 import com.stl.letsmeet.ui.login.LoginViewModel;
 import com.stl.letsmeet.ui.login.LoginViewModelFactory;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,7 +44,32 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
+        final Button registerButton = findViewById(R.id.register_button);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+
+        Toast toast = Toast.makeText(getApplicationContext(), "LoginActivity", Toast.LENGTH_LONG);
+        toast.show();
+
+        // Login activity
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, Profile.class);
+                startActivity(intent);
+            }
+        });
+
+
+        // Start Register activity
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
+            }
+
+        });
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -57,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
 
         loginViewModel.getLoginResult().observe(this, new Observer<LoginResult>() {
             @Override
@@ -108,7 +138,7 @@ public class LoginActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+        /*
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +147,8 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+        */
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {

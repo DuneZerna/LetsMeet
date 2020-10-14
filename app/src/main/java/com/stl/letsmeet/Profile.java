@@ -1,9 +1,17 @@
 package com.stl.letsmeet;
 
+
+import android.app.Activity;
+
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.view.Menu;
+import android.widget.Toast;
+import android.content.Intent;
 
 import com.google.android.material.navigation.NavigationView;
+import com.stl.letsmeet.ui.login.LoginViewModel;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -13,9 +21,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.stl.letsmeet.Profile;
+import com.stl.letsmeet.R;
+
 public class Profile extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private LoginViewModel loginViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +35,9 @@ public class Profile extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Toast toast = Toast.makeText(getApplicationContext(), "ProfileActivity", Toast.LENGTH_LONG);
+        toast.show();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
