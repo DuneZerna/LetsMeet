@@ -45,4 +45,23 @@
     <string name="Activities">Activities</string>
     <string name="Chat">Chat</string>
     <string name="hellos">hellos</string>
+    <string name="cityprofile">CityProfile</string>
+    <string name="nameprofile">NameProfile</string>
+    <string name="genderageprofile">GenderAgeProfile</string>
+    <string name="picnics">Picnics</string>
+    <string name="disney">Disney</string>
+    <string name="music">Music</string>
+    <string name="yoga">Yoga</string>
+    <string name="coffee">Coffee</string>
+    <string name="netflix">Netflix</string>
+    <string name="shopping">Shopping</string>
+    <string name="beer">Beer</string>
+    <string name="movies">Movies</string>
+    <string name="surfing">Surfing</string>
+    <string name="wine">Wine</string>
+    <string name="football">Football</string>
+    <string name="cooking">Cooking</string>
+    <string name="travel">Travel</string>
+    <string name="walks">Walks</string>
+    <string name="chocolate">Chocolate</string>
 </resources>
