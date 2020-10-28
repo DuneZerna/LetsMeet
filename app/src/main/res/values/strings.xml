@@ -64,4 +64,7 @@
     <string name="travel">Travel</string>
     <string name="walks">Walks</string>
     <string name="chocolate">Chocolate</string>
+    <string name="title_activity_preferences">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
