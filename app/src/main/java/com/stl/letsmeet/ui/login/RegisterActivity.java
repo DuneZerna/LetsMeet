@@ -11,17 +11,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.stl.letsmeet.Profile;
+import com.stl.letsmeet.Preferences;
 import com.stl.letsmeet.R;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
 
-    //private FireMissilesDialogFragment dialogFragment = DialogFragment;
+    private FireMissilesDialogFragment dialogFragment = new FireMissilesDialogFragment();
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -75,18 +73,21 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                     // Once the changes have been made,
-                    // we need to commit to apply those changes made,
-                    // otherwise, it will throw an error
+                    // we need to commit (apply() will do the execution in the background) to apply those changes made,
+                    // otherwise, it will throw an error @DuneZerna
                     saveProfile.apply();
 
                     Toast toast = Toast.makeText(getApplicationContext(), "Your profile was saved successfully", Toast.LENGTH_LONG);
                     toast.show();
 
+
                     //dialogFragment.show(dialogFragment,"Tag");
+
+                    //dialogFragment.show(getFragmentManager(), "missiles");
                 }
 
-                //Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                //startActivity(intent);
+                Intent intent = new Intent(RegisterActivity.this, Preferences.class);
+                startActivity(intent);
 
             }
         });

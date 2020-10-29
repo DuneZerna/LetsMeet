@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0099cc"
+    android:background="@android:color/white"
     tools:context=".Preferences">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -13,12 +13,14 @@
         android:id="@+id/fullscreen_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:gravity="top"
+        android:textAlignment="center"
         android:keepScreenOn="true"
-        android:text="@string/dummy_content"
-        android:textColor="#33b5e5"
+        android:text="@string/title"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="50sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="RtlCompat" />
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
@@ -33,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
+            android:background="@android:color/holo_red_dark"
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
@@ -43,7 +45,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:text="@string/dummy_button"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
     </FrameLayout>
