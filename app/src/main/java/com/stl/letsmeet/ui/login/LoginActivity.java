@@ -25,10 +25,7 @@ import android.widget.Toast;
 
 import com.stl.letsmeet.Profile;
 import com.stl.letsmeet.R;
-import com.stl.letsmeet.ui.login.LoginViewModel;
-import com.stl.letsmeet.ui.login.LoginViewModelFactory;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import com.stl.letsmeet.ui.RecyclerView.RecyclerViewMain;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -45,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final Button registerButton = findViewById(R.id.register_button);
+        final Button recyclerViewButton = findViewById(R.id.recyclerView_button);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         Toast toast = Toast.makeText(getApplicationContext(), "LoginActivity", Toast.LENGTH_LONG);
@@ -69,6 +67,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
+        });
+
+
+        // Opens up the recyclerView Activity
+        recyclerViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RecyclerViewMain.class);
+                startActivity(intent);
+            }
         });
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <Button
+        android:id="@+id/recyclerViewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Onwards"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
@@ -85,7 +94,7 @@
     <ImageView
         android:id="@+id/imageViewProfile"
         android:layout_width="197dp"
-        android:layout_height="233dp"
+        android:layout_height="193dp"
         android:layout_gravity="center"
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toBottomOf="parent"
