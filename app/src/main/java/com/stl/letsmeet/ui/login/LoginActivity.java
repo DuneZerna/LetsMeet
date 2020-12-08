@@ -25,7 +25,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.stl.letsmeet.Profile;
+import com.stl.letsmeet.Likes;
 import com.stl.letsmeet.R;
 import com.stl.letsmeet.ui.RecyclerView.MyAdapter;
 import com.stl.letsmeet.ui.RecyclerView.RecyclerViewMain;
@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, Profile.class);
+                Intent intent = new Intent(LoginActivity.this, Likes.class);
                 startActivity(intent);
             }
         });
