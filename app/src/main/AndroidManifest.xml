@@ -9,15 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Preferences"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_preferences"
-            android:theme="@style/FullscreenTheme"></activity>
+        <activity android:name=".Likes"></activity>
+        <activity android:name=".ui.RecyclerView.ActivityDetails" />
+        <activity android:name=".ui.RecyclerView.RecyclerViewMain" />
         <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/app_name"

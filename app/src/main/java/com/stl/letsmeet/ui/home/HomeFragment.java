@@ -1,9 +1,11 @@
 package com.stl.letsmeet.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,7 @@ import com.stl.letsmeet.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+    private Button recyclerView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +33,12 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        recyclerView = root.findViewById(R.id.recyclerViewButton);
+
         return root;
     }
+
+
+
 }

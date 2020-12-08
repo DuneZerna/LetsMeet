@@ -10,7 +10,7 @@
     <string name="prompt_postal_code">Postal Code</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="action_register">Create an account</string>
+    <string name="action_register">Register</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
@@ -20,7 +20,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
+
     <string name="previous">Previous</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
@@ -66,8 +66,76 @@
     <string name="chocolate">Chocolate</string>
 
 
-    <!-- Strings for Preferences Activity -->
-    <string name="title_activity_preferences">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string-array name="programming_languages">
+        <item>Chess Match</item>
+        <item>Fitness Training</item>
+        <item>Football Training</item>
+        <item>Football New Year</item>
+        <item>Morning Running</item>
+        <item>Long Run</item>
+        <item>Pokemon GO Raid</item>
+        <item>Magic the Gathering</item>
+        <item>New Resident</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>Boardgame</item>
+        <item>Workout</item>
+        <item>Football</item>
+        <item>Football</item>
+        <item>Running</item>
+        <item>Running</item>
+        <item>Pokemon GO</item>
+        <item>Cardgames</item>
+        <item>Sightseeing</item>
+    </string-array>
+
+    <string-array name="date">
+        <item>10-12-2020 at 15:00</item>
+        <item>14-12-2020 at 20:45</item>
+        <item>04-12-2020 at 10:45</item>
+        <item>01-01-2021 at 14:00</item>
+        <item>10-11-2020 at 08:50</item>
+        <item>01-12-2010 at 13:45</item>
+        <item>24-11-2020 at 18:00</item>
+        <item>27-12-2020 at 20:00</item>
+        <item>15-11-2020 at 14:15</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next">Next</string>
+    <string name="your_likes">Your likes</string>
+    <string name="magic">Magic</string>
 </resources>

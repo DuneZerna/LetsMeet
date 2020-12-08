@@ -11,6 +11,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -23,14 +25,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.stl.letsmeet.Profile;
+import com.stl.letsmeet.Likes;
 import com.stl.letsmeet.R;
-import com.stl.letsmeet.ui.login.LoginViewModel;
-import com.stl.letsmeet.ui.login.LoginViewModelFactory;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
+import com.stl.letsmeet.ui.RecyclerView.MyAdapter;
+import com.stl.letsmeet.ui.RecyclerView.RecyclerViewMain;
 
 public class LoginActivity extends AppCompatActivity {
+
+
+    RecyclerView recyclerView;
+    String s1[], s2[], s3[], s4[];
+
+    int images[] = {R.drawable.chess,R.drawable.dumbbell,R.drawable.football,R.drawable.football,R.drawable.running,
+            R.drawable.running,R.drawable.pokemon_go,R.drawable.card_game,R.drawable.binoculars,R.drawable.bowling};
 
     private LoginViewModel loginViewModel;
 
@@ -45,17 +52,30 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final Button registerButton = findViewById(R.id.register_button);
+        final Button recyclerViewButton = findViewById(R.id.recyclerView_button);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         Toast toast = Toast.makeText(getApplicationContext(), "LoginActivity", Toast.LENGTH_LONG);
         toast.show();
+
+
+        recyclerView = findViewById(R.id.recyclerView);
+
+        s1 = getResources().getStringArray(R.array.programming_languages);
+        s2 = getResources().getStringArray(R.array.description);
+        s3 = getResources().getStringArray(R.array.category);
+        s4 = getResources().getStringArray(R.array.date);
+
+        MyAdapter myAdapter = new MyAdapter(this, s1, s2, s3, s4, images);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Login activity
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, Profile.class);
+                Intent intent = new Intent(LoginActivity.this, Likes.class);
                 startActivity(intent);
             }
         });
@@ -69,6 +89,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
 
+        });
+
+
+        // Opens up the recyclerView Activity
+        recyclerViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RecyclerViewMain.class);
+                startActivity(intent);
+            }
         });
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
