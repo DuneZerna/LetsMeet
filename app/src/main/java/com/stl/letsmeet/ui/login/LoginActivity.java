@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.stl.letsmeet.Likes;
 import com.stl.letsmeet.R;
+import com.stl.letsmeet.ui.Chat.ChatActivity;
 import com.stl.letsmeet.ui.RecyclerView.MyAdapter;
 import com.stl.letsmeet.ui.RecyclerView.RecyclerViewMain;
 
@@ -53,6 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final Button registerButton = findViewById(R.id.register_button);
         final Button recyclerViewButton = findViewById(R.id.recyclerView_button);
+        final Button chatButton = findViewById(R.id.dontMindMe);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         Toast toast = Toast.makeText(getApplicationContext(), "LoginActivity", Toast.LENGTH_LONG);
@@ -97,6 +99,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LoginActivity.this, RecyclerViewMain.class);
+                startActivity(intent);
+            }
+        });
+
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
                 startActivity(intent);
             }
         });

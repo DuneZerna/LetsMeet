@@ -66,6 +66,8 @@
     <string name="chocolate">Chocolate</string>
 
 
+    <string name="input_placeholder">Write a message</string>
+
     <string-array name="programming_languages">
         <item>Chess Match</item>
         <item>Fitness Training</item>
