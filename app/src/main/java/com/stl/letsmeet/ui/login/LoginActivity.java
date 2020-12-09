@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         toast.show();
 
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerView2);
 
         s1 = getResources().getStringArray(R.array.programming_languages);
         s2 = getResources().getStringArray(R.array.description);
