@@ -33,6 +33,16 @@ public class Likes extends AppCompatActivity {
             }
         });
 
+        final Button back_button = findViewById(R.id.likes_back_button);
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Dune: Backtrace activity to previous
+                finish();
+            }
+        });
+
     }
 
     public void selectItem(View view) {

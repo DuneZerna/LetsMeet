@@ -9,18 +9,7 @@
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
          TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="top"
-        android:textAlignment="center"
-        android:keepScreenOn="true"
-        android:text="@string/title"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        tools:ignore="RtlCompat" />
+
 
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
@@ -28,6 +17,56 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true">
+
+        <TextView
+            android:id="@+id/fullscreen_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:textAlignment="center"
+            android:keepScreenOn="true"
+            android:text="@string/title"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:text=""
+            android:textSize="20sp"
+            />
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="200sp"
+            android:text="@string/checkBox1"
+            android:textSize="35sp"
+            tools:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="270sp"
+            android:text="@string/checkBox2"
+            android:textSize="35sp"
+            tools:visibility="invisible" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginVertical="340sp"
+            android:text="@string/checkBox3"
+            android:textSize="35sp"
+            tools:visibility="invisible" />
 
         <LinearLayout
             android:id="@+id/fullscreen_content_controls"
@@ -39,16 +78,19 @@
             android:orientation="horizontal"
             tools:ignore="UselessParent">
 
+
             <Button
                 android:id="@+id/dummy_button"
                 style="?metaButtonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/dummy_button"
+                android:text="@string/save_pref"
                 android:textColor="@android:color/white"/>
 
         </LinearLayout>
+
+
     </FrameLayout>
 
 </FrameLayout>

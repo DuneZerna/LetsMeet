@@ -5,10 +5,18 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import static android.os.Build.VERSION_CODES.M;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -34,6 +42,15 @@ public class Preferences extends AppCompatActivity {
     private static final int UI_ANIMATION_DELAY = 300;
     private final Handler mHideHandler = new Handler();
     private View mContentView;
+
+    /**
+     * UI Variables
+     */
+
+    CheckBox mCheckBox1;
+    CheckBox mCheckBox2;
+    CheckBox mCheckBox3;
+
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
         @Override
@@ -56,10 +73,12 @@ public class Preferences extends AppCompatActivity {
         @Override
         public void run() {
             // Delayed display of UI elements
+            /*
             ActionBar actionBar = getSupportActionBar();
             if (actionBar != null) {
                 actionBar.show();
             }
+             */
             mControlsView.setVisibility(View.VISIBLE);
         }
     };
@@ -100,9 +119,51 @@ public class Preferences extends AppCompatActivity {
 
         setContentView(R.layout.activity_preferences);
 
+
+        // Read from SharedPref(mySharedPref)
+        final TextView welcomeText;
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        String firstName = sharedPreferences.getString("firstName","");
+        welcomeText = findViewById(R.id.welcome_text);
+
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
+
+        mCheckBox1 = findViewById(R.id.checkBox1);
+        mCheckBox2 = findViewById(R.id.checkBox2);
+        mCheckBox3 = findViewById(R.id.checkBox3);
+
+        mCheckBox1.setVisibility(View.INVISIBLE);
+        mCheckBox2.setVisibility(View.INVISIBLE);
+        mCheckBox3.setVisibility(View.INVISIBLE);
+
+        welcomeText.setText("Welcome " + firstName);
+
+        /**
+         * Text delay
+         */
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                welcomeText.setText("On friday night, what would like to do?");
+            }
+        }, 5000);
+
+        /**
+         * Animate checkboxes
+         */
+        Handler animate = new Handler();
+        animate.postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                mCheckBox1.setVisibility(View.VISIBLE);
+                mCheckBox2.setVisibility(View.VISIBLE);
+                mCheckBox3.setVisibility(View.VISIBLE);
+            }
+        }, 8000);
+
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +215,7 @@ public class Preferences extends AppCompatActivity {
         // Show the system bar
         mContentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+
         mVisible = true;
 
         // Schedule a runnable to display UI elements after a delay

@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.stl.letsmeet.R;
 
@@ -32,5 +34,15 @@ public class RecyclerViewMain extends AppCompatActivity {
         MyAdapter myAdapter = new MyAdapter(this, s1, s2, s3, s4, images);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        final Button back_button = findViewById(R.id.details_back_button2);
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Dune: Backtrace activity to previous
+                finish();
+            }
+        });
     }
 }

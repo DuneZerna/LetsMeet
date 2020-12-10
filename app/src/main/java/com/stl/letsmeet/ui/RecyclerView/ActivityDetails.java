@@ -2,12 +2,17 @@ package com.stl.letsmeet.ui.RecyclerView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.stl.letsmeet.Likes;
 import com.stl.letsmeet.R;
+import com.stl.letsmeet.ui.login.LoginActivity;
 
 public class ActivityDetails extends AppCompatActivity {
 
@@ -28,8 +33,19 @@ public class ActivityDetails extends AppCompatActivity {
         category = findViewById(R.id.categoryView);
         date = findViewById(R.id.dateView);
 
+        final Button back_button = findViewById(R.id.detail_back_button);
+
+
         getData();
         setData();
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Dune: Backtrace activity to previous
+                finish();
+            }
+        });
     }
 
     private void getData() {

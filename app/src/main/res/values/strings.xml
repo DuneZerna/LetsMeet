@@ -35,7 +35,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="my_acitivites">My acitivites</string>
+    <string name="my_activities">My acitivites</string>
     <string name="chat">Chat</string>
     <string name="firat">Firat</string>
     <string name="hello">hello</string>
@@ -138,4 +138,9 @@
     <string name="next">Next</string>
     <string name="your_likes">Your likes</string>
     <string name="magic">Magic</string>
+    <string name="checkBox1">CheckBox1</string>
+    <string name="checkBox2">CheckBox2</string>
+    <string name="checkBox3">CheckBox3</string>
+    <string name="save_pref">Save Preference</string>
+    <string name="back_button">Back</string>
 </resources>

@@ -80,10 +80,6 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Your profile was saved successfully", Toast.LENGTH_LONG);
                     toast.show();
 
-
-                    //dialogFragment.show(dialogFragment,"Tag");
-
-                    //dialogFragment.show(getFragmentManager(), "missiles");
                 }
 
                 Intent intent = new Intent(RegisterActivity.this, Preferences.class);

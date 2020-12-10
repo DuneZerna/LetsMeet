@@ -7,19 +7,18 @@
     tools:context=".Likes">
 
 
-
     <Button
         android:id="@+id/NextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@android:color/holo_red_dark"
         android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="@+id/imageViewProfile"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.717" />
-
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -41,6 +40,7 @@
         android:layout_height="193dp"
         android:layout_gravity="center"
         android:contentDescription="@string/todo"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -51,211 +51,211 @@
 
     <CheckBox
         android:id="@+id/PicnicscheckBox"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/picnics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.413"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.347" />
-
-    <CheckBox
-        android:id="@+id/WalkscheckBox"
-        android:layout_width="77dp"
-        android:layout_height="35dp"
-        android:onClick="selectItem"
-        android:text="@string/walks"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.401"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.155" />
-
-    <CheckBox
-        android:id="@+id/YogacheckBox"
-        android:layout_width="77dp"
-        android:layout_height="36dp"
-        android:onClick="selectItem"
-        android:text="@string/yoga"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.434"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        app:layout_constraintVertical_bias="0.342" />
 
     <CheckBox
         android:id="@+id/disneycheckBox"
-        android:layout_width="82dp"
-        android:layout_height="31dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/disney"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281" />
-
-    <CheckBox
-        android:id="@+id/CoffeecheckBox"
-        android:layout_width="81dp"
-        android:layout_height="34dp"
-        android:onClick="selectItem"
-        android:text="@string/coffee"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
-
-    <CheckBox
-        android:id="@+id/ShoppingcheckBox"
-        android:layout_width="97dp"
-        android:layout_height="35dp"
-        android:onClick="selectItem"
-        android:text="@string/shopping"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
-
-    <CheckBox
-        android:id="@+id/FootballcheckBox"
-        android:layout_width="93dp"
-        android:layout_height="34dp"
-        android:onClick="selectItem"
-        android:text="@string/football"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.282" />
 
     <CheckBox
+        android:id="@+id/YogacheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/yoga"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <CheckBox
+        android:id="@+id/WalkscheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/walks"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <CheckBox
+        android:id="@+id/ShoppingcheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/shopping"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <CheckBox
+        android:id="@+id/CoffeecheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/coffee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <CheckBox
         android:id="@+id/CookingcheckBox"
-        android:layout_width="93dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/cooking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintVertical_bias="0.342" />
+
+    <CheckBox
+        android:id="@+id/FootballcheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/football"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
 
     <CheckBox
         android:id="@+id/NetflixcheckBox"
-        android:layout_width="83dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/netflix"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.731"
+        app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintVertical_bias="0.342" />
+
+    <CheckBox
+        android:id="@+id/MusiccheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/music"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
 
     <CheckBox
         android:id="@+id/Chocolate"
-        android:layout_width="102dp"
-        android:layout_height="34dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/chocolate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintHorizontal_bias="0.734"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.156" />
-
-    <CheckBox
-        android:id="@+id/TravelcheckBox"
-        android:layout_width="81dp"
-        android:layout_height="37dp"
-        android:onClick="selectItem"
-        android:text="@string/travel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.727"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
-
-    <CheckBox
-        android:id="@+id/MusiccheckBox"
-        android:layout_width="77dp"
-        android:layout_height="36dp"
-        android:text="@string/music"
-        android:onClick="selectItem"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.715"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.283" />
-
-    <CheckBox
-        android:id="@+id/WinecheckBox"
-        android:layout_width="72dp"
-        android:layout_height="32dp"
-        android:onClick="selectItem"
-        android:text="@string/wine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:layout_constraintVertical_bias="0.155" />
 
     <CheckBox
         android:id="@+id/SurfingcheckBox"
-        android:layout_width="88dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/surfing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.991"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.342" />
 
     <CheckBox
         android:id="@+id/MoviescheckBox"
-        android:layout_width="88dp"
-        android:layout_height="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/movies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.991"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.278" />
+        app:layout_constraintVertical_bias="0.282" />
+
+    <CheckBox
+        android:id="@+id/TravelcheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/travel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.68"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <CheckBox
+        android:id="@+id/WinecheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:onClick="selectItem"
+        android:text="@string/wine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.218" />
 
     <CheckBox
         android:id="@+id/BeercheckBox"
-        android:layout_width="67dp"
-        android:layout_height="33dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
         android:onClick="selectItem"
         android:text="@string/beer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.155" />
 
     <TextView
         android:id="@+id/ViewData"
@@ -280,5 +280,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.403" />
+
+    <Button
+        android:id="@+id/likes_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="@string/back_button"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
