@@ -1,9 +1,10 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">LetsMeet</string>
     <!-- Strings related to login -->
-    <string name="title">LetsMeet(R)</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="signUp">Sign In</string>
+    <string name="registered_user" tools:ignore="StringEscaping">Don't have an account?</string>
+    <string name="prompt_email">Your email address</string>
+    <string name="prompt_password">Your password</string>
     <string name="prompt_password_again">Repeat password</string>
     <string name="prompt_first_name">First Name</string>
     <string name="prompt_last_name">Last Name</string>
