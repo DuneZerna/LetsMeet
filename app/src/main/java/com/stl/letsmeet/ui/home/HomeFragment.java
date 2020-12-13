@@ -27,9 +27,18 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     String s1[], s2[], s3[], s4[];
+    String d1[], d2[], d3[], d4[];
+    String l1[], l2[], l3[], l4[];
 
     int images[] = {R.drawable.chess,R.drawable.dumbbell,R.drawable.football,R.drawable.football,R.drawable.running,
-            R.drawable.running,R.drawable.pokemon_go,R.drawable.card_game,R.drawable.binoculars,R.drawable.bowling};
+            R.drawable.running,R.drawable.pokemon_go,R.drawable.card_game,R.drawable.binoculars};
+
+    int imagesDate[] = {R.drawable.running,R.drawable.binoculars,R.drawable.pokemon_go,R.drawable.running,R.drawable.football,
+            R.drawable.chess,R.drawable.dumbbell,R.drawable.card_game,R.drawable.football};
+
+    int imagesLocation[] = {R.drawable.pokemon_go,R.drawable.dumbbell,R.drawable.card_game,R.drawable.running,R.drawable.binoculars,
+            R.drawable.football,R.drawable.football,R.drawable.running,R.drawable.chess};
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,19 +48,29 @@ public class HomeFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.recyclerView2);
 
-        s1 = getResources().getStringArray(R.array.programming_languages);
+        s1 = getResources().getStringArray(R.array.titles);
         s2 = getResources().getStringArray(R.array.description);
         s3 = getResources().getStringArray(R.array.category);
         s4 = getResources().getStringArray(R.array.date);
 
-        final Button nearMeButton = root.findViewById(R.id.button12);
+        d1 = getResources().getStringArray(R.array.titles2);
+        d2 = getResources().getStringArray(R.array.description2);
+        d3 = getResources().getStringArray(R.array.category2);
+        d4 = getResources().getStringArray(R.array.date2);
+
+        l1 = getResources().getStringArray(R.array.titles3);
+        l2 = getResources().getStringArray(R.array.description3);
+        l3 = getResources().getStringArray(R.array.category3);
+        l4 = getResources().getStringArray(R.array.date3);
+
+        final Button locationButton = root.findViewById(R.id.button12);
         final Button dateButton = root.findViewById(R.id.button22);
         final Button categoryButton = root.findViewById(R.id.button32);
 
-        nearMeButton.setOnClickListener(new View.OnClickListener() {
+        locationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), s1, s2, s4, s3, images);
+                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), l1, l2, l3, l4, imagesLocation);
                 recyclerView.setAdapter(myAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
             }
@@ -60,7 +79,7 @@ public class HomeFragment extends Fragment {
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), s4, s3, s2, s1, images);
+                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), d1, d2, d3, d4, imagesDate);
                 recyclerView.setAdapter(myAdapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
             }

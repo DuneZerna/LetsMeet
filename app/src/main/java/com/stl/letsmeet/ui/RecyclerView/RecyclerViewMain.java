@@ -26,7 +26,7 @@ public class RecyclerViewMain extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
-        s1 = getResources().getStringArray(R.array.programming_languages);
+        s1 = getResources().getStringArray(R.array.titles);
         s2 = getResources().getStringArray(R.array.description);
         s3 = getResources().getStringArray(R.array.category);
         s4 = getResources().getStringArray(R.array.date);
