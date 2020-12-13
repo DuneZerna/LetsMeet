@@ -54,7 +54,6 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.login);
         final Button registerButton = findViewById(R.id.register_button);
         final Button recyclerViewButton = findViewById(R.id.recyclerView_button);
-        final Button chatButton = findViewById(R.id.dontMindMe);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         Toast toast = Toast.makeText(getApplicationContext(), "LoginActivity", Toast.LENGTH_LONG);
@@ -103,13 +102,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        chatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
-                startActivity(intent);
-            }
-        });
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override

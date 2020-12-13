@@ -1,9 +1,11 @@
 package com.stl.letsmeet.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,8 +16,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.stl.letsmeet.Likes;
 import com.stl.letsmeet.R;
 import com.stl.letsmeet.ui.RecyclerView.MyAdapter;
+import com.stl.letsmeet.ui.login.LoginActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -33,13 +37,43 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-
         recyclerView = root.findViewById(R.id.recyclerView2);
 
         s1 = getResources().getStringArray(R.array.programming_languages);
         s2 = getResources().getStringArray(R.array.description);
         s3 = getResources().getStringArray(R.array.category);
         s4 = getResources().getStringArray(R.array.date);
+
+        final Button nearMeButton = root.findViewById(R.id.button12);
+        final Button dateButton = root.findViewById(R.id.button22);
+        final Button categoryButton = root.findViewById(R.id.button32);
+
+        nearMeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), s1, s2, s4, s3, images);
+                recyclerView.setAdapter(myAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+            }
+        });
+
+        dateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), s4, s3, s2, s1, images);
+                recyclerView.setAdapter(myAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+            }
+        });
+
+        categoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), s1, s2, s3, s4, images);
+                recyclerView.setAdapter(myAdapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+            }
+        });
 
         MyAdapter myAdapter = new MyAdapter(getActivity().getApplicationContext(), s1, s2, s3, s4, images);
         recyclerView.setAdapter(myAdapter);
