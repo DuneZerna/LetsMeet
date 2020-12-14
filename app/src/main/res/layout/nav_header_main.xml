@@ -21,6 +21,7 @@
         android:contentDescription="@string/todo" />
 
     <TextView
+        android:id="@+id/usernameDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/firat"
@@ -28,6 +29,7 @@
         android:textSize="20sp"
         android:textColor="#fff" />
     <TextView
+        android:id="@+id/ageDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/_23"
@@ -35,7 +37,7 @@
         android:textSize="20sp"
         android:textColor="#fff" />
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/cityDisplay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/odense"

@@ -1,11 +1,6 @@
 package com.stl.letsmeet;
 
 import android.annotation.SuppressLint;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,50 +8,17 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.stl.letsmeet.ui.login.LoginActivity;
-import com.stl.letsmeet.ui.login.RegisterActivity;
-
-import org.w3c.dom.Text;
-
-import static android.os.Build.VERSION_CODES.M;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
 public class Preferences extends AppCompatActivity{
-
-    /*
-    private class ClickListener implements View.OnClickListener
-    {
-        @Override
-        public void onClick(View view)
-        {
-            Toast toast;
-            switch (view.getId())
-            {
-
-                case R.id.checkBox1:
-                    toast = Toast.makeText(getApplicationContext(), "Yaaay! " + view.getId(), Toast.LENGTH_LONG);
-                    toast.show();
-
-                case R.id.checkBox2:
-                    toast = Toast.makeText(getApplicationContext(), "Yaaay! " + view.getId(), Toast.LENGTH_LONG);
-                    toast.show();
-
-                case R.id.checkBox3:
-                    toast = Toast.makeText(getApplicationContext(), "Yaaay! " + view.getId(), Toast.LENGTH_LONG);
-                    toast.show();
-                //handle multiple view click events
-            }
-        }
-    }
-    */
-
 
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -170,10 +132,6 @@ public class Preferences extends AppCompatActivity{
         mCheckBox1 = findViewById(R.id.checkBox1);
         mCheckBox2 = findViewById(R.id.checkBox2);
         mCheckBox3 = findViewById(R.id.checkBox3);
-
-        Boolean checkBoxState1 = mCheckBox1.isChecked();
-        Boolean checkBoxState2 = mCheckBox1.isChecked();
-        Boolean checkBoxState3 = mCheckBox1.isChecked();
 
         mCheckBox1.setVisibility(View.INVISIBLE);
         mCheckBox2.setVisibility(View.INVISIBLE);

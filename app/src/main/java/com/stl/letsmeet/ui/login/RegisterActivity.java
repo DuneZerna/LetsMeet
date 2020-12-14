@@ -1,7 +1,5 @@
 package com.stl.letsmeet.ui.login;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,9 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.stl.letsmeet.Preferences;
 import com.stl.letsmeet.R;
-import com.stl.letsmeet.data.model.LoggedInUser;
 
 
 public class RegisterActivity extends AppCompatActivity {
@@ -71,6 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
                     saveProfile.putString("email", emailInput.getText().toString());
                     saveProfile.putString("postalCode", postalCodeInput.getText().toString());
                     saveProfile.putString("password", passwordInput.getText().toString());
+                    saveProfile.putBoolean("newUser",true);
 
 
                     // Once the changes have been made,

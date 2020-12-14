@@ -16,6 +16,11 @@
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/chat" />
+
+        <item
+            android:id="@+id/log_out"
+            android:icon="@drawable/circle"
+            android:title="@string/log_out" />
     </group>
 
 </menu>

@@ -1,41 +1,33 @@
 package com.stl.letsmeet.ui.login;
 
 import android.app.Activity;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.stl.letsmeet.Likes;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.stl.letsmeet.Preferences;
 import com.stl.letsmeet.Profile;
 import com.stl.letsmeet.R;
-import com.stl.letsmeet.ui.Chat.ChatActivity;
 import com.stl.letsmeet.ui.RecyclerView.MyAdapter;
-import com.stl.letsmeet.ui.RecyclerView.RecyclerViewMain;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -76,6 +68,53 @@ public class LoginActivity extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        /*
+           Using AlertBox to manage user sessions.
+         */
+        // Used for session checking
+        final SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+        if (!sharedPreferences.getString("email", "").isEmpty() &&
+                sharedPreferences.getBoolean("newUser",false) == false){
+
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LoginActivity.this);
+            alertDialogBuilder.setTitle("In session");
+            alertDialogBuilder.setIcon(R.drawable.letsmeet_background);
+            alertDialogBuilder.setMessage("We have detected you already have a login, do you want to log in user that profile?");
+            alertDialogBuilder.setCancelable(false);
+
+            // No button
+            alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                        sharedPreferences.edit().clear().apply();
+                    Toast toast = Toast.makeText(getApplicationContext(), "Cache has been cleared", Toast.LENGTH_LONG);
+                    toast.show();
+                }
+            });
+
+            // Yes button
+            alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                    SharedPreferences.Editor saveProfile = sharedPreferences.edit();
+                    saveProfile.putBoolean("newUser",false);
+                    saveProfile.apply();
+
+                    Intent intent;
+                    intent = new Intent(LoginActivity.this, Profile.class);
+                    startActivity(intent);
+                }
+            });
+
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+        }
+
+        /*
+           The method for validating user login and managing route for new users.
+         */
         // Login activity
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +134,17 @@ public class LoginActivity extends AppCompatActivity {
                     alertDialogBuilder.setMessage("Are you new to LetsMeet?");
                     alertDialogBuilder.setCancelable(false);
 
+                    // No button
+                    alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent;
+                            intent = new Intent(LoginActivity.this, Profile.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    // Yes button
                     alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -104,14 +154,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     });
 
-                    alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Intent intent;
-                            intent = new Intent(LoginActivity.this, Profile.class);
-                            startActivity(intent);
-                        }
-                    });
+
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
                 } else {
