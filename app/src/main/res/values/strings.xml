@@ -69,10 +69,11 @@
     <string name="walks">Walks</string>
     <string name="chocolate">Chocolate</string>
 
-
+    <!-- String used for chat activity -->
     <string name="input_placeholder">Write a message</string>
 
-    <string-array name="programming_languages">
+    <!-- Strings used for home fragment (and recyclerView activity) -->
+    <string-array name="titles">
         <item>Chess Match</item>
         <item>Fitness Training</item>
         <item>Football Training</item>
@@ -132,11 +133,146 @@
         <item>04-12-2020 at 10:45</item>
         <item>01-01-2021 at 14:00</item>
         <item>10-11-2020 at 08:50</item>
-        <item>01-12-2010 at 13:45</item>
+        <item>01-12-2020 at 13:45</item>
         <item>24-11-2020 at 18:00</item>
         <item>27-12-2020 at 20:00</item>
         <item>15-11-2020 at 14:15</item>
     </string-array>
+
+    <string-array name="titles2">
+        <item>Morning Running</item>
+        <item>New Resident</item>
+        <item>Pokemon GO Raid</item>
+        <item>Long Run</item>
+        <item>Football Training</item>
+        <item>Chess Match</item>
+        <item>Fitness Training</item>
+        <item>Magic the Gathering</item>
+        <item>Football New Year</item>
+    </string-array>
+
+    <string-array name="description2">
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+    </string-array>
+
+    <string-array name="category2">
+        <item>Running</item>
+        <item>Sightseeing</item>
+        <item>Pokemon GO</item>
+        <item>Running</item>
+        <item>Football</item>
+        <item>Boardgame</item>
+        <item>Workout</item>
+        <item>Cardgames</item>
+        <item>Football</item>
+    </string-array>
+
+    <string-array name="date2">
+        <item>10-11-2020 at 08:50</item>
+        <item>15-11-2020 at 14:15</item>
+        <item>24-11-2020 at 18:00</item>
+        <item>01-12-2020 at 13:45</item>
+        <item>04-12-2020 at 10:45</item>
+        <item>10-12-2020 at 15:00</item>
+        <item>14-12-2020 at 20:45</item>
+        <item>27-12-2020 at 20:00</item>
+        <item>01-01-2021 at 14:00</item>
+    </string-array>
+
+    <string-array name="titles3">
+        <item>Pokemon GO Raid</item>
+        <item>Fitness Training</item>
+        <item>Magic the Gathering</item>
+        <item>Morning Running</item>
+        <item>New Resident</item>
+        <item>Football New Year</item>
+        <item>Football Training</item>
+        <item>Long Run</item>
+        <item>Chess Match</item>
+    </string-array>
+
+    <string-array name="description3">
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+        <item>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</item>
+    </string-array>
+
+    <string-array name="category3">
+        <item>Pokemon GO</item>
+        <item>Workout</item>
+        <item>Cardgames</item>
+        <item>Running</item>
+        <item>Sightseeing</item>
+        <item>Football</item>
+        <item>Football</item>
+        <item>Running</item>
+        <item>Boardgame</item>
+    </string-array>
+
+    <string-array name="date3">
+        <item>24-11-2020 at 18:00</item>
+        <item>14-12-2020 at 20:45</item>
+        <item>27-12-2020 at 20:00</item>
+        <item>10-11-2020 at 08:50</item>
+        <item>15-11-2020 at 14:15</item>
+        <item>01-01-2021 at 14:00</item>
+        <item>04-12-2020 at 10:45</item>
+        <item>01-12-2020 at 13:45</item>
+        <item>10-12-2020 at 15:00</item>
+    </string-array>
+
+
+
 
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -149,4 +285,5 @@
     <string name="checkBox3">CheckBox3</string>
     <string name="save_pref">Save Preference</string>
     <string name="back_button">Back</string>
+
 </resources>
