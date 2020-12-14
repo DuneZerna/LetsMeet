@@ -14,12 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.stl.letsmeet.Preferences;
 import com.stl.letsmeet.R;
+import com.stl.letsmeet.data.model.LoggedInUser;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
-
+    LoginActivity loginActivity;
     private FireMissilesDialogFragment dialogFragment = new FireMissilesDialogFragment();
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -27,8 +30,6 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         final Button createButton = findViewById(R.id.registerLayout_register);
         final Button cancelButton = findViewById(R.id.registerLayout_cancel);
-
-
         final EditText firstNameInput = findViewById(R.id.firstName);
         final EditText lastNameInput = findViewById(R.id.lastName);
         final EditText emailInput = findViewById(R.id.promptEmail);
@@ -39,8 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         final String userEmail = null;
 
-        Toast toast = Toast.makeText(getApplicationContext(), "RegisterActivity", Toast.LENGTH_LONG);
-        toast.show();
 
 
         // Start Register activity
@@ -66,6 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
                     // Storing the key and its value
                     // as the data fetched from edittext
                     saveProfile.putString("firstName", firstNameInput.getText().toString());
+                    // Update user model
+                    new LoggedInUserView(firstNameInput.getText().toString());
                     saveProfile.putString("lastName", lastNameInput.getText().toString());
                     saveProfile.putString("email", emailInput.getText().toString());
                     saveProfile.putString("postalCode", postalCodeInput.getText().toString());
@@ -81,8 +82,9 @@ public class RegisterActivity extends AppCompatActivity {
                     toast.show();
 
                 }
-
-                Intent intent = new Intent(RegisterActivity.this, Preferences.class);
+                // Dune: Sets the user as new
+                //loginActivity.model = true;
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
 
             }

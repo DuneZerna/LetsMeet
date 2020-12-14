@@ -24,10 +24,11 @@
             android:layout_height="match_parent"
             android:gravity="top"
             android:textAlignment="center"
+            android:paddingTop="20dp"
             android:keepScreenOn="true"
-            android:text="@string/title"
+            android:text="@string/preference"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="50sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             tools:ignore="RtlCompat" />
 

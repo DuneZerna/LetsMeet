@@ -6,13 +6,19 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.stl.letsmeet.ui.login.LoginActivity;
+import com.stl.letsmeet.ui.login.RegisterActivity;
 
 import org.w3c.dom.Text;
 
@@ -22,7 +28,36 @@ import static android.os.Build.VERSION_CODES.M;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class Preferences extends AppCompatActivity {
+public class Preferences extends AppCompatActivity{
+
+    /*
+    private class ClickListener implements View.OnClickListener
+    {
+        @Override
+        public void onClick(View view)
+        {
+            Toast toast;
+            switch (view.getId())
+            {
+
+                case R.id.checkBox1:
+                    toast = Toast.makeText(getApplicationContext(), "Yaaay! " + view.getId(), Toast.LENGTH_LONG);
+                    toast.show();
+
+                case R.id.checkBox2:
+                    toast = Toast.makeText(getApplicationContext(), "Yaaay! " + view.getId(), Toast.LENGTH_LONG);
+                    toast.show();
+
+                case R.id.checkBox3:
+                    toast = Toast.makeText(getApplicationContext(), "Yaaay! " + view.getId(), Toast.LENGTH_LONG);
+                    toast.show();
+                //handle multiple view click events
+            }
+        }
+    }
+    */
+
+
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -46,10 +81,9 @@ public class Preferences extends AppCompatActivity {
     /**
      * UI Variables
      */
+    CheckBox mCheckBox1, mCheckBox2, mCheckBox3;
 
-    CheckBox mCheckBox1;
-    CheckBox mCheckBox2;
-    CheckBox mCheckBox3;
+    int questionsAnswered = 0;
 
     private final Runnable mHidePart2Runnable = new Runnable() {
         @SuppressLint("InlinedApi")
@@ -113,6 +147,7 @@ public class Preferences extends AppCompatActivity {
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,15 +165,21 @@ public class Preferences extends AppCompatActivity {
         mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_content);
 
+
+        // Set 1
         mCheckBox1 = findViewById(R.id.checkBox1);
         mCheckBox2 = findViewById(R.id.checkBox2);
         mCheckBox3 = findViewById(R.id.checkBox3);
+
+        Boolean checkBoxState1 = mCheckBox1.isChecked();
+        Boolean checkBoxState2 = mCheckBox1.isChecked();
+        Boolean checkBoxState3 = mCheckBox1.isChecked();
 
         mCheckBox1.setVisibility(View.INVISIBLE);
         mCheckBox2.setVisibility(View.INVISIBLE);
         mCheckBox3.setVisibility(View.INVISIBLE);
 
-        welcomeText.setText("Welcome " + firstName);
+        welcomeText.setText("Welcome " + firstName.toUpperCase());
 
         /**
          * Text delay
@@ -148,6 +189,9 @@ public class Preferences extends AppCompatActivity {
             @Override
             public void run() {
                 welcomeText.setText("On friday night, what would like to do?");
+                mCheckBox1.setText("Go for a run");
+                mCheckBox2.setText("Try to eat as much pizza as possible");
+                mCheckBox3.setText("Party like rebel amish");
             }
         }, 5000);
 
@@ -164,12 +208,217 @@ public class Preferences extends AppCompatActivity {
             }
         }, 8000);
 
+        /**
+         *
+         */
+
+
+        mCheckBox1.setOnClickListener(new View.OnClickListener() {
+            Handler animate = new Handler();
+            @Override
+            public void onClick(View v) {
+
+                if ( ((CheckBox)v).isChecked() ) {
+                    welcomeText.setText(((CheckBox)v).getText().toString() +"\nNice choice!");
+                    questionsAnswered++;
+                    mCheckBox1.setChecked(false);
+                    mCheckBox2.setChecked(false);
+                    mCheckBox3.setChecked(false);
+                    mCheckBox1.setVisibility(View.INVISIBLE);
+                    mCheckBox2.setVisibility(View.INVISIBLE);
+                    mCheckBox3.setVisibility(View.INVISIBLE);
+
+                    animate.postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            if(questionsAnswered == 1){
+                                mCheckBox1.setChecked(false);
+                                mCheckBox2.setChecked(false);
+                                mCheckBox3.setChecked(false);
+                                welcomeText.setText("On saturday morning, what would like to do?");
+                                mCheckBox1.setText("Put my clothes back on");
+                                mCheckBox2.setText("Construct a DIY robot");
+                                mCheckBox3.setText("MMA");
+
+                                mCheckBox1.setVisibility(View.VISIBLE);
+                                mCheckBox2.setVisibility(View.VISIBLE);
+                                mCheckBox3.setVisibility(View.VISIBLE);
+                            } else if (questionsAnswered == 2){
+                                mCheckBox1.setChecked(false);
+                                mCheckBox2.setChecked(false);
+                                mCheckBox3.setChecked(false);
+                                welcomeText.setText("On sunday morning, what would like to do?");
+                                mCheckBox1.setText("Firat");
+                                mCheckBox2.setText("Dune");
+                                mCheckBox3.setText("Daniel");
+
+                                mCheckBox1.setVisibility(View.VISIBLE);
+                                mCheckBox2.setVisibility(View.VISIBLE);
+                                mCheckBox3.setVisibility(View.VISIBLE);
+                            } else if (questionsAnswered == 3){
+                                Intent intent = new Intent(Preferences.this, Profile.class);
+                                startActivity(intent);
+                            }
+                        }
+                    }, 3000);
+                }
+            }
+        });
+
+
+        mCheckBox2.setOnClickListener(new View.OnClickListener() {
+            Handler animate = new Handler();
+
+
+            @Override
+            public void onClick(View v) {
+                if ( ((CheckBox)v).isChecked() && questionsAnswered == 0) {
+                    welcomeText.setText(((CheckBox)v).getText().toString() +"\nNice choice!");
+                    questionsAnswered++;
+                    mCheckBox1.setChecked(false);
+                    mCheckBox2.setChecked(false);
+                    mCheckBox3.setChecked(false);
+                    mCheckBox1.setVisibility(View.INVISIBLE);
+                    mCheckBox2.setVisibility(View.INVISIBLE);
+                    mCheckBox3.setVisibility(View.INVISIBLE);
+
+                    animate.postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            if(questionsAnswered == 1){
+                                mCheckBox1.setChecked(false);
+                                mCheckBox2.setChecked(false);
+                                mCheckBox3.setChecked(false);
+                                welcomeText.setText("On saturday morning, what would like to do?");
+                                mCheckBox1.setText("Put my clothes back on");
+                                mCheckBox2.setText("Construct a DIY robot");
+                                mCheckBox3.setText("MMA");
+
+                                mCheckBox1.setVisibility(View.VISIBLE);
+                                mCheckBox2.setVisibility(View.VISIBLE);
+                                mCheckBox3.setVisibility(View.VISIBLE);
+                            } else if (questionsAnswered == 2){
+                                mCheckBox1.setChecked(false);
+                                mCheckBox2.setChecked(false);
+                                mCheckBox3.setChecked(false);
+                                welcomeText.setText("On sunday morning, what would like to do?");
+                                mCheckBox1.setText("Firat");
+                                mCheckBox2.setText("Dune");
+                                mCheckBox3.setText("Daniel");
+
+                                mCheckBox1.setVisibility(View.VISIBLE);
+                                mCheckBox2.setVisibility(View.VISIBLE);
+                                mCheckBox3.setVisibility(View.VISIBLE);
+                            } else if (questionsAnswered == 3){
+                                Intent intent = new Intent(Preferences.this, Profile.class);
+                                startActivity(intent);
+                            }
+                        }
+                    }, 3000);
+                }
+            }
+        });
+
+        mCheckBox3.setOnClickListener(new View.OnClickListener() {
+            Handler animate = new Handler();
+            @Override
+            public void onClick(View v) {
+
+                if ( ((CheckBox)v).isChecked() ) {
+                    welcomeText.setText(((CheckBox)v).getText().toString() +"\nNice choice!");
+                    questionsAnswered++;
+                    mCheckBox1.setChecked(false);
+                    mCheckBox2.setChecked(false);
+                    mCheckBox3.setChecked(false);
+                    mCheckBox1.setVisibility(View.INVISIBLE);
+                    mCheckBox2.setVisibility(View.INVISIBLE);
+                    mCheckBox3.setVisibility(View.INVISIBLE);
+
+                    animate.postDelayed(new Runnable(){
+                        @Override
+                        public void run() {
+                            if(questionsAnswered == 1){
+                                mCheckBox1.setChecked(false);
+                                mCheckBox2.setChecked(false);
+                                mCheckBox3.setChecked(false);
+                                welcomeText.setText("On saturday morning, what would like to do?");
+                                mCheckBox1.setText("Put my clothes back on");
+                                mCheckBox2.setText("Construct a DIY robot");
+                                mCheckBox3.setText("MMA");
+
+                                mCheckBox1.setVisibility(View.VISIBLE);
+                                mCheckBox2.setVisibility(View.VISIBLE);
+                                mCheckBox3.setVisibility(View.VISIBLE);
+                            } else if (questionsAnswered == 2){
+                                mCheckBox1.setChecked(false);
+                                mCheckBox2.setChecked(false);
+                                mCheckBox3.setChecked(false);
+                                welcomeText.setText("On sunday morning, what would like to do?");
+                                mCheckBox1.setText("Firat");
+                                mCheckBox2.setText("Dune");
+                                mCheckBox3.setText("Daniel");
+
+                                mCheckBox1.setVisibility(View.VISIBLE);
+                                mCheckBox2.setVisibility(View.VISIBLE);
+                                mCheckBox3.setVisibility(View.VISIBLE);
+                            } else if (questionsAnswered == 3){
+                                Intent intent = new Intent(Preferences.this, Profile.class);
+                                startActivity(intent);
+                            }
+                        }
+                    }, 3000);
+                }
+            }
+        });
+
+
+        /*
+        if ((checkBoxState1 == true || checkBoxState2 == true || checkBoxState3 == true)){
+
+            welcomeText.setText("Nice choice!");
+            mCheckBox1.setVisibility(View.INVISIBLE);
+            mCheckBox2.setVisibility(View.INVISIBLE);
+            mCheckBox3.setVisibility(View.INVISIBLE);
+
+            animate.postDelayed(new Runnable(){
+                @Override
+                public void run() {
+                    welcomeText.setText("On saturday morning, what would like to do?");
+                    mCheckBox1.setText("Put my clothes back on");
+                    mCheckBox2.setText("Construct a DIY robot");
+                    mCheckBox3.setText("MMA");
+
+                    mCheckBox1.setVisibility(View.VISIBLE);
+                    mCheckBox2.setVisibility(View.VISIBLE);
+                    mCheckBox3.setVisibility(View.VISIBLE);
+                }
+            }, 8000);
+        }
+        */
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                toggle();
+                Toast.makeText(getApplicationContext(), " " + view.getId(), Toast.LENGTH_LONG).show();
+
+                switch (view.getId()) {
+                    case R.id.checkBox1:
+                        if (mCheckBox1.isChecked())
+                            Toast.makeText(getApplicationContext(), "Android", Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.checkBox2:
+                        if (mCheckBox2.isChecked())
+                            Toast.makeText(getApplicationContext(), "Java", Toast.LENGTH_LONG).show();
+                        break;
+                    case R.id.checkBox3:
+                        if (mCheckBox3.isChecked())
+                            Toast.makeText(getApplicationContext(), "PHP", Toast.LENGTH_LONG).show();
+                        break;
+
+                }
+                //toggle();
+
             }
         });
 
@@ -196,6 +445,8 @@ public class Preferences extends AppCompatActivity {
             show();
         }
     }
+
+
 
     private void hide() {
         // Hide UI first
@@ -231,4 +482,5 @@ public class Preferences extends AppCompatActivity {
         mHideHandler.removeCallbacks(mHideRunnable);
         mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
+
 }

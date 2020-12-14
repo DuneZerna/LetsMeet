@@ -2,10 +2,13 @@ package com.stl.letsmeet.ui.login;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -16,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -26,6 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stl.letsmeet.Likes;
+import com.stl.letsmeet.Preferences;
+import com.stl.letsmeet.Profile;
 import com.stl.letsmeet.R;
 import com.stl.letsmeet.ui.Chat.ChatActivity;
 import com.stl.letsmeet.ui.RecyclerView.MyAdapter;
@@ -34,6 +40,8 @@ import com.stl.letsmeet.ui.RecyclerView.RecyclerViewMain;
 public class LoginActivity extends AppCompatActivity {
 
 
+
+    public boolean model;
     RecyclerView recyclerView;
     String s1[], s2[], s3[], s4[];
 
@@ -49,17 +57,14 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = ViewModelProviders.of(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
+
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.login);
         final Button registerButton = findViewById(R.id.register_button);
-        final Button recyclerViewButton = findViewById(R.id.recyclerView_button);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
-
-        Toast toast = Toast.makeText(getApplicationContext(), "LoginActivity", Toast.LENGTH_LONG);
-        toast.show();
-
-
+        //final Button recyclerViewButton = findViewById(R.id.recyclerView_button);
+        //final Button chatButton = findViewById(R.id.dontMindMe);
+        //final ProgressBar loadingProgressBar = findViewById(R.id.loading);
         recyclerView = findViewById(R.id.recyclerView2);
 
         s1 = getResources().getStringArray(R.array.programming_languages);
@@ -72,12 +77,47 @@ public class LoginActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Login activity
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, Likes.class);
-                startActivity(intent);
+                SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                String parsed = usernameEditText.getText().toString().toLowerCase();
+                String stored = sharedPreferences.getString("email","").toLowerCase();
+
+
+                // Dune: Only user is validated for now
+                if (parsed.equals(stored)){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Login successful", Toast.LENGTH_LONG);
+                    toast.show();
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(LoginActivity.this);
+                    alertDialogBuilder.setTitle("New user?");
+                    alertDialogBuilder.setIcon(R.drawable.letsmeet_background);
+                    alertDialogBuilder.setMessage("Are you new to LetsMeet?");
+                    alertDialogBuilder.setCancelable(false);
+
+                    alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent;
+                            intent = new Intent(LoginActivity.this, Preferences.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent;
+                            intent = new Intent(LoginActivity.this, Profile.class);
+                            startActivity(intent);
+                        }
+                    });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Login failed : " + sharedPreferences.getString("email",""), Toast.LENGTH_LONG);
+                    toast.show();
+                }
             }
         });
 
@@ -86,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                model = true;
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             }
@@ -94,6 +135,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         // Opens up the recyclerView Activity
+        /*
         recyclerViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,8 +143,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
+        */
+        /*
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, ChatActivity.class);
+                startActivity(intent);
+            }
+        });
+        */
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
             public void onChanged(@Nullable LoginFormState loginFormState) {
@@ -126,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResult == null) {
                     return;
                 }
-                loadingProgressBar.setVisibility(View.GONE);
+                //loadingProgressBar.setVisibility(View.GONE);
                 if (loginResult.getError() != null) {
                     showLoginFailed(loginResult.getError());
                 }

@@ -28,6 +28,7 @@ public class Profile extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private LoginViewModel loginViewModel;
+    String mUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,8 @@ public class Profile extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+       mUsername = findViewById(R.id.nav_home).toString();
     }
 
     @Override
